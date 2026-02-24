@@ -38,7 +38,8 @@ public class DatabaseHandler {
 
     public void insertStudent(Student student) {
 
-        String sql = "INSERT INTO students " +
+        // INSERT OR REPLACE prevents duplicate ID crash
+        String sql = "INSERT OR REPLACE INTO students " +
                 "(givenName, middleName, surname, age, year, major, section, studentID, phone, dob) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
@@ -66,7 +67,7 @@ public class DatabaseHandler {
     public List<Student> fetchAllStudents() {
 
         List<Student> list = new ArrayList<>();
-        String sql = "SELECT * FROM students";
+        String sql = "SELECT * FROM students ORDER BY studentID";
 
         try (Connection conn = DriverManager.getConnection(DATABASE_URL);
              Statement stmt = conn.createStatement();

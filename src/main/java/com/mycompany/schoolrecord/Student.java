@@ -39,7 +39,15 @@ public class Student {
 
     @Override
     public String toString() {
-        return studentID + " | " + givenName + " " + surname + " | " + major;
+        return "ID: " + studentID +
+               "\nName: " + givenName + " " + middleName + " " + surname +
+               "\nAge: " + age +
+               "\nYear: " + year +
+               "\nMajor: " + major +
+               "\nSection: " + section +
+               "\nPhone: " + phone +
+               "\nDOB: " + dob +
+               "\n----------------------------";
     }
 
     public static class StudentBuilder {
